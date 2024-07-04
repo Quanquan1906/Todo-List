@@ -1,10 +1,11 @@
 import {Component, input, OnInit, output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgClass, NgForOf} from "@angular/common";
-interface Todo {
-  task: string;
-  selected: boolean;
-}
+import {Todo} from "../model/model";
+// interface Todo {
+//   task: string;
+//   selected: boolean;
+// }
 
 @Component({
   selector: 'app-todo-list',
@@ -19,6 +20,12 @@ export class TodoListComponent implements OnInit {
   newTask: string = ''; //1 chuoi rong de luu cac newtask
   todos: Todo[] = []; //1 mang rong chua cac task(string) va selected(boolean)
 
+  todo: Todo;
+
+  constructor() {
+    this.todo = new Todo();
+  }
+
   //Ham them cac newTask(cac cong viec moi)
   addTodo() {
     if (this.newTask.trim()) {
@@ -27,6 +34,7 @@ export class TodoListComponent implements OnInit {
       localStorage.setItem('todos', JSON.stringify(this.todos));
     }
   }
+
   //Ham xoa cac muc newtask
   removeTodo(index: number) {
     this.todos.splice(index, 1);
@@ -46,6 +54,7 @@ export class TodoListComponent implements OnInit {
       }
     }
   }
+
   //Ham loai bo tat ca cac muc newTask da hoan thanh
   removeSelectedTodos() {
     this.todos = this.todos.filter(todo => !todo.selected);
@@ -55,6 +64,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
     this.readData();
   }
+
   //Ham doc du lieu "todos" tu localStorage
   readData() {
     let items = localStorage.getItem('todos');
