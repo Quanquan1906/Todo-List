@@ -72,4 +72,7 @@ export class TodoListComponent implements OnInit {
       this.todos = JSON.parse(items);
     }
   }
+
+  test() {
+  }
 }
