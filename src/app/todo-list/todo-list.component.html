@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col shadow main-col bg-custom">
+      <!------Start of Todo List-------->
+      <div class="row bg-color text-white">
+        <div class="col p-2 text-center">
+          <h1>Todo List</h1>
+        </div>
+      </div>
+      <!------End of Todo List-------->
+      <!--Start of Form ban dau-->
+      <div class="row justify-content-between text-green p-2">
+        <div class="form-group flex-fill mb-2 d-flex align-items-center">
+          <input type="text" class="text form-control me-2" placeholder="Add a new task" [(ngModel)]="newTask" [ngModelOptions]="{standalone: true}">
+          <button class="button btn custom-add-todo add-todo form-control" (click)="addTodo()">Add Todo</button>
+        </div>
+      </div>
+      <!--End of Form ban dau-->
+
+      <!-- Danh sach cac Todo  -->
+      <div class="row">
+        <div class="list-group flex-fill mb-2">
+          <div *ngFor="let todo of todos;let i =index" class="d-flex justify-content-between align-items-center">
+            <div class="px-4">
+              <input type="checkbox" [(ngModel)]="todo.selected" (change)="toggleTodoCompleted(i)">
+              <span class="px-2" [ngClass]="{'completed': todo.selected, 'custom': todo.selected}">{{todo.task}}</span>
+            </div>
+            <button type="button" (click)="removeTodo(i)" class="bi bi-x-circle-fill no-border"></button>
+          </div>
+          <button type="button" class="btn btn-danger" (click)="removeSelectedTodos()">Delete Selected</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

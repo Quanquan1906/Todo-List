@@ -1,0 +1,39 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+.custom-add-todo {
+  background-color:  #4a69c6;
+  border-color:  #4a69c6;
+  color: white;
+}
+.custom-add-todo:hover {
+  background-color: lightblue;
+  border-color: lightblue;
+}
+.text-center{
+  text-align: center;
+}
+.add-todo{
+  margin-left: 10px;
+}
+.bg-custom {
+  background-color: #f0f0f0;
+}
+.bg-color{
+  background-color: #4a69c6;
+}
+//.list-group-item {
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//}
+.no-border {
+  border: none;
+
+}
+.custom{
+  text-decoration: line-through;
+  color: red;
+}
+
